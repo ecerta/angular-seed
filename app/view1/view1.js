@@ -9,6 +9,14 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
 
-}]);
+
+.controller('View1Ctrl', function($scope, $http) {
+  $http.get("search.json")
+  .success(function (response) {
+    $scope.doctors = response.professionals;
+  });
+});
+
+
+
