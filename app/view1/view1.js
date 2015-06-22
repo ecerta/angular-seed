@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.view1', ['ngRoute', 'ngMap'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -15,6 +15,9 @@ angular.module('myApp.view1', ['ngRoute'])
   $http.get("search.json")
   .success(function (response) {
     $scope.doctors = response.professionals;
+  });
+  $scope.$on('mapInitialized', function(event, map) {
+    map.setCenter(41,-87 )
   });
 });
 
