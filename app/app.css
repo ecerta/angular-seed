@@ -28,3 +28,21 @@
   content: "";
   padding: 0;
 }
+
+.pending{
+  color: #E8D909;
+}
+
+.available{
+  color: #0DC906;
+}
+
+.down{
+  display: none;
+}
+
+.doctor-box{
+  border: 1px solid black;
+  background-color: #C4C4C4;
+  max-width: 50%;
+}
