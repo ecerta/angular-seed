@@ -16,9 +16,7 @@ angular.module('myApp.view1', ['ngRoute', 'ngMap'])
   .success(function (response) {
     $scope.doctors = response.professionals;
   });
-  $scope.$on('mapInitialized', function(event, map) {
-    map.setCenter(41,-87 )
-  });
+
 });
 
 

@@ -1,18 +1,21 @@
 
-<div map-lazy-load="http://maps.google.com/maps/api/js">
-  <map center="29.4,-98.5" zoom="10"></map>
+<div map-lazy-load="http://maps.google.com/maps/api/js" class="map">
+  <map center="29.5,-98.5" zoom="11">
+    <marker ng-repeat="doctor in doctors"
+      position="[{{doctor.locations[0].address.latitude}}, {{doctor.locations[0].address.longitude}}]"
+      visible="true"
+      clickable="false"
+      animation="{ '' : $index == selectedIndex}">
+    </marker>
+  </map>
 </div>
 
-
-
-<div ng-controller="View1Ctrl">
-  <ul>
-    <li ng-repeat="doctor in doctors" class = "doctor-box">
-      {{doctor.name}}
-      <br>
-      {{doctor.locations[0].address.addr_line1}}
-      <br>
-      {{doctor.locations[0].address.city}}, {{doctor.locations[0].address.state_code}}
-    </li>
-  </ul>
-</div>
+<ul>
+  <li ng-repeat="doctor in doctors" class = "doctor-box" ng-click="isSelected($index)">
+    {{doctor.name}}
+    <br>
+    {{doctor.locations[0].address.addr_line1}}
+    <br>
+    {{doctor.locations[0].address.city}}, {{doctor.locations[0].address.state_code}}
+  </li>
+</ul>
