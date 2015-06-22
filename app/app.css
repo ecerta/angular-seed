@@ -41,8 +41,16 @@
   display: none;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .doctor-box{
   border: 1px solid black;
   background-color: #C4C4C4;
+  max-width: 50%;
+}
+
+.map{
   max-width: 50%;
 }
