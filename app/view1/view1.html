@@ -2,20 +2,23 @@
 <div map-lazy-load="http://maps.google.com/maps/api/js" class="map">
   <map center="29.5,-98.5" zoom="11">
     <marker ng-repeat="doctor in doctors"
+      ng-init=""
       position="[{{doctor.locations[0].address.latitude}}, {{doctor.locations[0].address.longitude}}]"
       visible="true"
       clickable="false"
-      animation="{ '' : $index == selectedIndex}">
+      animation="false : selected()">
     </marker>
   </map>
 </div>
 
 <ul>
-  <li ng-repeat="doctor in doctors" class = "doctor-box" ng-click="isSelected($index)">
+  <li ng-repeat="doctor in doctors" class = "doctor-box" ng-click="selected()">
     {{doctor.name}}
     <br>
     {{doctor.locations[0].address.addr_line1}}
     <br>
     {{doctor.locations[0].address.city}}, {{doctor.locations[0].address.state_code}}
+    <br>
+    <button ng-click="selected()"> I want this doctor! </button>
   </li>
 </ul>
